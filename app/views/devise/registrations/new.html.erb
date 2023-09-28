@@ -1,4 +1,38 @@
-<h2>Sign up</h2>
+<div class="d-flex align-items-center py-4 bg-body-tertiary flex-column text-center">
+  <main role="main" class="form-signin w-50 m-auto">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+
+      <div class="form-floating">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: 'first-name', class: 'form-control', id: 'floatingtext_field', placeholder: 'First Name' %>
+        <%= f.label :first_name %>
+      </div>
+      <div class="form-floating">
+        <%= f.text_field :last_name, autofocus: true, autocomplete: 'last-name', class: 'form-control', id: 'floatingInput', placeholder: 'Last Name' %>
+        <%= f.label :last_name %>
+      </div>
+      <div class="form-floating">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', id: 'floatingInput', placeholder: 'name@example.com' %>
+        <%= f.label :email  %>
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
+        <%= f.label :password %><br />
+      </div>
+      <div class="form-floating">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', id: 'floatingPassword', placeholder: 'Confirm password' %>
+        <%= f.label :password_confirmation %><br />
+      </div>
+
+      <%= f.submit "Sign up", class: 'btn btn-primary w-100 py-2' %>
+    <% end %>
+    <%= render "devise/shared/links" %> 
+  </main>
+</div>
+
+<%
+=begin%>
+ <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -24,6 +58,6 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<% end %> 
+<%
+=end%>
